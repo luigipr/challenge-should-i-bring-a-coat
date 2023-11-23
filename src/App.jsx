@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { PageContainer } from './components/PageContainer';
+import { CityForm } from './components/CityForm';
+import { WeatherOverview } from './components/WeatherOverview';
+import { WeatherBoard } from './components/WeatherBoard';
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -31,17 +35,19 @@ function App() {
 
 
   return (
-    <>
-  { todos.length > 0 ? 
-  <>
-    <ul>
-      {todos.map((todo, i) => {
-        return <li key={i}><input type="checkbox" checked={todo.completed} readOnly /> {todo.title}</li>
-      }) }
-    </ul>
-    </>  : 'oops' }
-    </>
-  )
+    <PageContainer>
+      <TitleH1>Levo um casaquinho?</TitleH1>
+      <CityForm loading={loading} onSubmit={onSubmit} />
+      <WeatherOverview
+        country={weather?.country}
+        description={weather?.description}
+        max={weather?.max}
+        min={weather?.min}
+        temp={weather?.temp}
+      />
+      <WeatherBoard forecast={forecast} />
+    </PageContainer>
+  );
 }
 
 export default App
