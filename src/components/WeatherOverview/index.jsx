@@ -1,4 +1,3 @@
-import { Weather } from '@/apis/openweather';
 import { WeatherContainer } from './WeatherContainer';
 
 

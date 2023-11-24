@@ -5,8 +5,7 @@ import {
     XAxis,
     YAxis
   } from 'recharts';
-  import { DateHelper } from '@/helpers/date.helper';
-  import { Forecast } from '../apis/openweather';
+  import { DateHelper } from '../helpers/DateHelper';
   
   
   export function WeatherBoard({ forecast }) {

@@ -1,7 +1,6 @@
-import { FormEventHandler } from 'react';
 import { Button } from './Button';
+import { Form } from './Form';
 import { Input } from './Input';
-import styled from 'styled-components';
 
 export function CityForm({ loading, onSubmit }) {
   return (
@@ -12,7 +11,3 @@ export function CityForm({ loading, onSubmit }) {
   );
 }
 
-export const Form = styled.form`
-  display: flex;
-  max-width: 400px;
-`;
