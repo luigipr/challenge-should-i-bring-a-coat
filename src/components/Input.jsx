@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   flex: 1 0;
-  background: transparent;
+  background: #EDEDEF;;
   outline: none;
-  border: 1px solid #2e2e2e;
-  border-radius: 2px;
+  border-radius: 25px;
   font-family: inherit;
-  padding: 2px;
+  padding-left: 20px;
+  
+  box-shadow: 0px 24px 48px 0px #314F7C14;
 `;

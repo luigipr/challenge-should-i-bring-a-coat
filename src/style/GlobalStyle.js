@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Poppins:wght@600&family=Recursive:wght@300;400;500;700&family=Righteous&display=swap');
+	* {
+		font-family: 'Poppins', sans-serif;
+	}
+
 	button {
 		height: 43px;
 		background: #E8833A;
