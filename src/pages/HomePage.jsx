@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br'; 
 import { Time } from "../components/Time";
 import { Footer } from "../components/Footer";
-import Swal from "sweetalert2";
+import { WeatherData } from "../components/WeatherData";
 
 dayjs.locale('pt-br');
 
@@ -32,24 +32,8 @@ export default function Home() {
     e.preventDefault();
 
     const city = e.target["cidade"].value.trim();
-    if (!city) return Swal.fire({
-        icon: "error",
-        title: "Ops...",
-        text: "cidade não existe!",
-        showCloseButton: false,
-      });
-    
-    try {
         setCity(city)
-        searchForecast(city);  
-    } catch (error) {
-         Swal.fire({
-            icon: "error",
-            title: "Ops...",
-            text: "Muitas requisições ao servidor!",
-            showCloseButton: false,
-          });
-    }
+        searchForecast(city);
   };
 
   return (
@@ -61,7 +45,7 @@ export default function Home() {
         </Header>
         <CityForm loading={loading} onSubmit={onSubmit} />
         <WeatherOverview
-          city={weather?.city}
+          city={city}
           description={weather?.description}
           max={weather?.max}
           min={weather?.min}
@@ -80,7 +64,25 @@ export default function Home() {
       </Footer>
       </Left>
       <Right>
-        <WeatherBoard forecast={forecast} />
+        <SideHeader>
+            <div>
+            <h2>Hoje</h2>
+            <h2>Próximos dias</h2>
+            </div>
+            <h1>{city}</h1>
+            <p>Lat: {weather?.coord.lat} Lon: {weather?.coord.lon}</p>
+        </SideHeader>
+        <WeatherData           
+          max={weather?.max}
+          min={weather?.min}
+          temp={weather?.temp}
+          wind={weather?.wind}
+          humidity={weather?.humidity}>
+        </WeatherData>
+        {weather?.temp < 17 ? 
+        <p color="#AFADAD" >Sim, você deve levar um casaquinho!</p> : 
+        <p color="#222">Não, você não deve levar um casaquinho!</p>}
+        <p>Dados fornecidos pela <a href="https://openweathermap.org/">Open Weather API</a></p>
       </Right>
     </PageContainer>
   );
@@ -104,9 +106,38 @@ const Header = styled.div`
 
 const Right = styled.div`
     display: flex;
+    flex-direction: column;
     width: 1250px;
     height: 100vh;
     background: #EFEFEF;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: left;
+    padding-left: 30px;
+`
+
+const SideHeader = styled.div`
+    padding-top: 50px;
+    font-family: Poppins;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-bottom: 50px;
+    
+    div {
+        display: flex;
+        padding-bottom: 80px;
+        gap: 50px;
+    }
+
+    h1 {
+        font-size: 120px;
+        padding-bottom: 10px;
+    }
+
+    p {
+        font-size: 12px;
+        font-weight: 200;
+    }
 `
