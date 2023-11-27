@@ -9,7 +9,7 @@ We are planning to make it biggger.
 
 ## How to see it working?
 There's a public demo available in:
--[Should I Bring a Coat?](https://vercel.com/luigipr/challenge-should-i-bring-a-coat) deployed on [Vercel](https://vercel.com/).
+[Should I Bring a Coat?](https://vercel.com/luigipr/challenge-should-i-bring-a-coat) deployed on [Vercel](https://vercel.com/).
 
 ## How to run for development
 
