@@ -1,19 +1,19 @@
 # Should I Bring a Coat?
 
-This project has the purpose of searching for a city and it answers you with its characteristics, whether it is about today or of the following days.
+This project has the purpose of searching for a city and it answers you with its weather characteristics, whether it is about today or of the following days.
 
 For this first step, it only works on brazilian cities, starting in Brasilia, but you are free to use the input as query for more cities.
 We are planning to make it biggger.
 
 ## How to see it working?
 There's a public demo available in:
--[Should I Bring a Coat?](https://vercel.com/luigipr/challenge-should-i-bring-a-coat). deployed on [Vercel](https://vercel.com/).
+-[Should I Bring a Coat?](https://vercel.com/luigipr/challenge-should-i-bring-a-coat) deployed on [Vercel](https://vercel.com/).
 
 ## How to run for development
 
 1. Clone this repository
 2. Install all dependencies
-3. run the dev command
+3. Run the dev command
 
 ```bash
 npm i
