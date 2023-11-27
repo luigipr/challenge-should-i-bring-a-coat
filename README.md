@@ -2,6 +2,8 @@
 
 This project has the purpose of searching for a city and it answers you with its weather characteristics, whether it is about today or of the following days.
 
+It should also warn you to bring a coat if the temperature is bellow 17°C.
+
 For this first step, it only works on brazilian cities, starting in Brasilia, but you are free to use the input as query for more cities.
 We are planning to make it biggger.
 
