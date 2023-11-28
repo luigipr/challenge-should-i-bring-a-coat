@@ -20,6 +20,8 @@ export default function Home() {
   const [hour, setHour] = useState(dayjs().format('HH:mm'));
   const [weeekday, setWeekday] = useState(dayjs().format('dddd'))
   const [city, setCity] = useState('brasilia')
+  const [data, setData] = useState(true)
+  const [board, setBoard] = useState(false)
 
   useEffect(() => {
     searchForecast(city);
@@ -35,6 +37,16 @@ export default function Home() {
         setCity(city)
         searchForecast(city);
   };
+  function dataPage(){ 
+    if(board) setBoard(false)
+    if(!data) setData(true)
+  }
+  function boardPage(){
+    if(!board) setBoard(true)
+    if(data) setData(false)
+  }
+  let color= data ? '#222222' : '#C8C8C8';
+  let color2= board ? '#222222' : '#C8C8C8';
 
   return (
     <PageContainer>
@@ -44,21 +56,11 @@ export default function Home() {
             <Title>Levo um casaquinho?</Title>
         </Header>
         <CityForm loading={loading} onSubmit={onSubmit} />
-        <WeatherOverview
-          city={city}
-          description={weather?.description}
-          max={weather?.max}
-          min={weather?.min}
-          temp={weather?.temp}
-          wind={weather?.wind}
-          humidity={weather?.humidity}
-          icon={weather?.icon}
-        />
+        <WeatherOverview description={weather?.description} temp={weather?.temp}icon={weather?.icon}/>
         <Time>
             <p>{dayNum}</p>
             <p>{weeekday}, {hour}</p>
         </Time>
-
       <Footer>
         <p>Todos os direitos reservados. 2023.</p>
       </Footer>
@@ -66,22 +68,17 @@ export default function Home() {
       <Right>
         <SideHeader>
             <div>
-            <h2>Hoje</h2>
-            <h2>Próximos dias</h2>
+            <h2 onClick={dataPage} style={{color}}>Hoje</h2>
+            <h2 onClick={boardPage} style={{color: color2}}>Próximos dias</h2>
             </div>
             <h1>{city}</h1>
             <p>Lat: {weather?.coord.lat} Lon: {weather?.coord.lon}</p>
         </SideHeader>
-        <WeatherData           
-          max={weather?.max}
-          min={weather?.min}
-          temp={weather?.temp}
-          wind={weather?.wind}
-          humidity={weather?.humidity}>
-        </WeatherData>
+        { data && <WeatherData max={weather?.max} min={weather?.min} wind={weather?.wind} humidity={weather?.humidity} /> }
+        { board && <WeatherBoard forecast={forecast} /> }
         {weather?.temp < 17 ? 
-        <p color="#AFADAD" >Sim, você deve levar um casaquinho!</p> : 
-        <p color="#222">Não, você não deve levar um casaquinho!</p>}
+        <p style={{color: "#AFADAD", fontStyle: 'italic' }}>Sim, você deve levar um casaquinho!</p> : 
+        <p style={{color: "#222", fontStyle: 'italic' }}>Não, você não deve levar um casaquinho!</p>}
         <p>Dados fornecidos pela <a href="https://openweathermap.org/">Open Weather API</a></p>
       </Right>
     </PageContainer>
@@ -124,7 +121,7 @@ const SideHeader = styled.div`
     letter-spacing: 0em;
     text-align: left;
     padding-bottom: 50px;
-    
+
     div {
         display: flex;
         padding-bottom: 80px;

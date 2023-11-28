@@ -1,11 +1,6 @@
 import styled from "styled-components"
 
-export function WeatherData({
-    max,
-    min,
-    wind,
-    humidity,
-  }) {
+export function WeatherData({max,min,wind,humidity}) {
     const min1 = Math.floor(min)
     const max1 = Math.floor(max)
     return (
@@ -42,6 +37,7 @@ export function WeatherData({
     padding-top: 25px;
     padding-left: 25px;
     color: #fff;
+    
 
     p{
         font-size: 22px;
