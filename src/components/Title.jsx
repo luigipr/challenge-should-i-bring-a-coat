@@ -14,4 +14,10 @@ export const Title = styled.h1`
   text-align: left;
   padding-left: 20px;
   padding-top: 20px;
+
+  @media screen and (max-width: 412px) {
+    padding: 0;
+    width: 100%;
+    font-size: 42px;
+  }
 `;

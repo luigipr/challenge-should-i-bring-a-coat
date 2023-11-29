@@ -8,4 +8,9 @@ export const Form = styled.form`
   padding-bottom: 30px;
   align-items:center;
   justify-content: center;
+
+  @media screen and (max-width: 412px) {
+    width: 90%; /* Alterando o width para ocupar toda a largura */
+    align-items: center;
+  }
 `;

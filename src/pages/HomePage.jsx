@@ -11,11 +11,13 @@ import 'dayjs/locale/pt-br';
 import { Time } from "../components/Time";
 import { Footer } from "../components/Footer";
 import { WeatherData } from "../components/WeatherData";
+import { BringCoat } from "../components/BringCoat";
+import { SideHeader } from "../components/SideHeader";
 
 dayjs.locale('pt-br');
 
 export default function Home() {
-  const { forecast, weather, loading, searchForecast } = useWeather();
+  const { forecast, weather, searchForecast } = useWeather();
   const [dayNum, setDayNum] = useState(dayjs().format('dd/MM/YYYY'));
   const [hour, setHour] = useState(dayjs().format('HH:mm'));
   const [weeekday, setWeekday] = useState(dayjs().format('dddd'))
@@ -45,9 +47,6 @@ export default function Home() {
     if(!board) setBoard(true)
     if(data) setData(false)
   }
-  let color= data ? '#222222' : '#C8C8C8';
-  let color2= board ? '#222222' : '#C8C8C8';
-
   return (
     <PageContainer>
       <Left>
@@ -55,7 +54,7 @@ export default function Home() {
             <img src="../../public/casaco.png" />
             <Title>Levo um casaquinho?</Title>
         </Header>
-        <CityForm loading={loading} onSubmit={onSubmit} />
+        <CityForm onSubmit={onSubmit} />
         <WeatherOverview description={weather?.description} temp={weather?.temp}icon={weather?.icon}/>
         <Time>
             <p>{dayNum}</p>
@@ -66,20 +65,10 @@ export default function Home() {
       </Footer>
       </Left>
       <Right>
-        <SideHeader>
-            <div>
-            <h2 onClick={dataPage} style={{color}}>Hoje</h2>
-            <h2 onClick={boardPage} style={{color: color2}}>Próximos dias</h2>
-            </div>
-            <h1>{city}</h1>
-            <p>Lat: {weather?.coord.lat} Lon: {weather?.coord.lon}</p>
-        </SideHeader>
+        <SideHeader dataPage={dataPage} boardPage={boardPage} data={data} board={board} city={city} weather={weather} />
         { data && <WeatherData max={weather?.max} min={weather?.min} wind={weather?.wind} humidity={weather?.humidity} /> }
         { board && <WeatherBoard forecast={forecast} /> }
-        {weather?.temp < 17 ? 
-        <p style={{color: "#AFADAD", fontStyle: 'italic' }}>Sim, você deve levar um casaquinho!</p> : 
-        <p style={{color: "#222", fontStyle: 'italic' }}>Não, você não deve levar um casaquinho!</p>}
-        <p>Dados fornecidos pela <a href="https://openweathermap.org/">Open Weather API</a></p>
+        <BringCoat weather={weather?.temp} />
       </Right>
     </PageContainer>
   );
@@ -93,12 +82,25 @@ const Left = styled.div`
     flex-direction:column;
     
     
+    @media screen and (max-width: 412px) {
+    width: 100%; /* Alterando o width para ocupar toda a largura */
+    height: 700px;
+    align-items: center;
+  }
 `
 const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px 75px;
+      /* Estilos para a media query */
+  @media screen and (max-width: 412px) {
+    img{
+      width: 80px;
+    }
+    width: 80%;
+    padding: 15px 30px; /* Ajustando o padding para telas menores */
+  }
 `
 
 const Right = styled.div`
@@ -110,31 +112,9 @@ const Right = styled.div`
     align-items: start;
     justify-content: left;
     padding-left: 30px;
-`
 
-const SideHeader = styled.div`
-    padding-top: 50px;
-    font-family: Poppins;
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: left;
-    padding-bottom: 50px;
-
-    div {
-        display: flex;
-        padding-bottom: 80px;
-        gap: 50px;
-    }
-
-    h1 {
-        font-size: 120px;
-        padding-bottom: 10px;
-    }
-
-    p {
-        font-size: 12px;
-        font-weight: 200;
-    }
+    @media screen and (max-width: 412px) {
+    width: 100%;
+    height: 100%;
+  }
 `

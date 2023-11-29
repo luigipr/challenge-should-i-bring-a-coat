@@ -4,7 +4,7 @@ export function WeatherData({max,min,wind,humidity}) {
     const min1 = Math.floor(min)
     const max1 = Math.floor(max)
     return (
-        <>
+        <WeatherDataContainer>
             <Round>
                 <DataContainer>
                     <p>Mínima</p>
@@ -25,9 +25,15 @@ export function WeatherData({max,min,wind,humidity}) {
                     <h1>{wind} m/s</h1>
                 </DataContainer>
             </Round>
-        </>
+        </WeatherDataContainer>
     )
   }
+
+  const WeatherDataContainer = styled.div`
+    @media screen and (max-width: 412px) {
+    width: 100%;
+  }
+  `
 
   const DataContainer = styled.div`
     background: linear-gradient(117.33deg, #4D4494 22.83%, #4F43AE 90.03%);
@@ -45,6 +51,12 @@ export function WeatherData({max,min,wind,humidity}) {
     h1{
         font-size: 48px;
     }
+
+    @media screen and (max-width: 412px) {
+    width: 350px;
+    height: 100px;
+    align-items:center;
+  }
   `
 
 const Round = styled.div`
@@ -52,4 +64,10 @@ const Round = styled.div`
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
+
+    @media screen and (max-width: 412px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 `

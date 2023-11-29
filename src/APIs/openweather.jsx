@@ -6,7 +6,6 @@ const API_KEY = import.meta.env.VITE_API_KEY
 export async function getForecastFromCity(city) {
   try {
   const response = await axios.get(`${URL}/forecast?q=${city},BR&appid=${API_KEY}&lang=pt&units=metric`);
-    //axios.get('/forecast', { params: { q: country } });
     const forecasts = response.data.list ?? [];
     return forecasts.map((forecast) => {
       return {

@@ -14,4 +14,9 @@ export const Footer = styled.form`
   letter-spacing: 0em;
   align-items:center;
   justify-content: end;
+
+  @media screen and (max-width: 412px) {
+    width: 90%;
+    font-size: 18px;
+  }
 `;

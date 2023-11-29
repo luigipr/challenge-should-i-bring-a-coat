@@ -22,8 +22,10 @@ export function WeatherBoard({ forecast }) {
     }
     return null;
   };
+  
   return (
-    <LineChart width={500} height={300} data={forecast}>
+    <div className="chart-container">
+    <LineChart width={1000} height={300} data={forecast}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
         dataKey="dt"
@@ -37,5 +39,7 @@ export function WeatherBoard({ forecast }) {
       <Tooltip content={<CustomTooltip />} />
       <Line type="monotone" dataKey="temp" stroke="#c9a340" activeDot={{ r: 8 }} />
     </LineChart>
+    </div>
   );
 }
+

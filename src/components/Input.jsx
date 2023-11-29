@@ -9,4 +9,9 @@ export const Input = styled.input`
   padding-left: 20px;
   
   box-shadow: 0px 24px 48px 0px #314F7C14;
+
+  @media screen and (max-width: 412px) {
+    width: 90%; /* Alterando o width para ocupar toda a largura */
+    align-items: center;
+  }
 `;
