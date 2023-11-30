@@ -5,6 +5,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  ResponsiveContainer,
 } from 'recharts';
 import { DateHelper } from '../helpers/DateHelper';
 
@@ -24,7 +25,7 @@ export function WeatherBoard({ forecast }) {
   };
   
   return (
-    <div className="chart-container"  style={{ backgroundColor: '#D8D8D8' }}>
+    <ResponsiveContainer width="92%" height='100%' style={{ backgroundColor: '#D8D8D8' }}>
     <LineChart width={1000} height={300} data={forecast}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
@@ -39,7 +40,8 @@ export function WeatherBoard({ forecast }) {
       <Tooltip content={<CustomTooltip />} />
       <Line type="monotone" dataKey="temp" stroke="#c9a340" activeDot={{ r: 8 }} />
     </LineChart>
-    </div>
+    </ResponsiveContainer>
   );
+
 }
 

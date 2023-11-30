@@ -67,12 +67,23 @@ export default function Home() {
       <Right>
         <SideHeader dataPage={dataPage} boardPage={boardPage} data={data} board={board} city={city} weather={weather} />
         { data && <WeatherData max={weather?.max} min={weather?.min} wind={weather?.wind} humidity={weather?.humidity} /> }
-        { board && <WeatherBoard forecast={forecast} /> }
+        { board && <Area><WeatherBoard forecast={forecast} /></Area> }
         <BringCoat weather={weather?.temp} />
       </Right>
     </PageContainer>
   );
 }
+
+const Area= styled.div`
+  width: 1200px;
+  height: 450px;
+
+  @media screen and (max-width: 412px) {
+    width: 100%; /* Alterando o width para ocupar toda a largura */
+    height: 300px;
+    align-items: center;
+  }
+`
 
 const Left = styled.div`
     background: #FFFFFF;
