@@ -24,7 +24,7 @@ export function WeatherBoard({ forecast }) {
   };
   
   return (
-    <div className="chart-container">
+    <div className="chart-container"  style={{ backgroundColor: '#D8D8D8' }}>
     <LineChart width={1000} height={300} data={forecast}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
