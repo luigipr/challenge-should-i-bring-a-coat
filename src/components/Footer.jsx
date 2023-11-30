@@ -15,7 +15,7 @@ export const Footer = styled.form`
   align-items:center;
   justify-content: end;
 
-  @media screen and (max-width: 412px) {
+  @media screen and (max-width: 432px) {
     width: 90%;
     font-size: 18px;
   }

@@ -78,7 +78,7 @@ const Area= styled.div`
   width: 1200px;
   height: 450px;
 
-  @media screen and (max-width: 412px) {
+  @media screen and (max-width: 432px) {
     width: 100%; /* Alterando o width para ocupar toda a largura */
     height: 300px;
     align-items: center;
@@ -93,7 +93,7 @@ const Left = styled.div`
     flex-direction:column;
     
     
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
     width: 100%; /* Alterando o width para ocupar toda a largura */
     height: 700px;
     align-items: center;
@@ -105,7 +105,7 @@ const Header = styled.div`
     justify-content: center;
     padding: 15px 75px;
       /* Estilos para a media query */
-  @media screen and (max-width: 412px) {
+  @media screen and (max-width: 432px) {
     img{
       width: 80px;
     }
@@ -124,7 +124,7 @@ const Right = styled.div`
     justify-content: left;
     padding-left: 30px;
 
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
     width: 100%;
     height: 100%;
   }

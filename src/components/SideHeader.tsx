@@ -48,7 +48,7 @@ const SideHeaderContainer = styled.div`
         font-weight: 200;
     }
 
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
      width: 100%; 
     h1 {
       font-size: 80px; /* Reduzindo o tamanho do título */

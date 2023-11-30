@@ -30,7 +30,7 @@ export function WeatherData({max,min,wind,humidity}) {
   }
 
   const WeatherDataContainer = styled.div`
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
     width: 100%;
   }
   `
@@ -52,7 +52,7 @@ export function WeatherData({max,min,wind,humidity}) {
         font-size: 48px;
     }
 
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
     width: 350px;
     height: 100px;
     align-items:center;
@@ -65,7 +65,7 @@ const Round = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 432px) {
     flex-direction: column;
     justify-content: center;
     gap: 20px;

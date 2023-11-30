@@ -9,7 +9,7 @@ export const Form = styled.form`
   align-items:center;
   justify-content: center;
 
-  @media screen and (max-width: 412px) {
+  @media screen and (max-width: 432px) {
     width: 90%; /* Alterando o width para ocupar toda a largura */
     align-items: center;
   }

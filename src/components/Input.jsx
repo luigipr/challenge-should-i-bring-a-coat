@@ -10,7 +10,7 @@ export const Input = styled.input`
   
   box-shadow: 0px 24px 48px 0px #314F7C14;
 
-  @media screen and (max-width: 412px) {
+  @media screen and (max-width: 432px) {
     width: 90%; /* Alterando o width para ocupar toda a largura */
     align-items: center;
   }
