@@ -51,7 +51,7 @@ export default function Home() {
     <PageContainer>
       <Left>
         <Header>
-            <img src="../../public/casaco.png" />
+            <img src="../../casaco.png" />
             <Title>Levo um casaquinho?</Title>
         </Header>
         <CityForm onSubmit={onSubmit} />
