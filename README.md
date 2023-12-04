@@ -7,6 +7,8 @@ It should also warn you to bring a coat if the temperature is bellow 17°C.
 For this first step, it only works on brazilian cities, starting in Brasilia, but you are free to use the input as query for more cities.
 We are planning to make it biggger.
 
+It was developed using Vite, Javascript, React, axios, express, styled-components and more, also ultilizes the openweathermap api.
+
 ## How to see it working?
 There's a public demo available in:
 [Should I Bring a Coat?](https://vercel.com/luigipr/challenge-should-i-bring-a-coat) deployed on [Vercel](https://vercel.com/).
