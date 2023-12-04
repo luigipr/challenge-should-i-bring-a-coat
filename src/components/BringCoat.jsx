@@ -12,14 +12,5 @@ export function BringCoat({weather}) {
 }
 
 const BringCoatContainer = styled.div`
-    
+    padding-top: 50px;
 `
-
-
-
-
-// {weather?.temp < 17 ? 
-//     <p style={{color: "#AFADAD", fontStyle: 'italic' }}>Sim, você deve levar um casaquinho!</p> : 
-//     <p style={{color: "#222", fontStyle: 'italic' }}>Não, você não deve levar um casaquinho!</p>}
-//     <p>Dados fornecidos pela <a href="https://openweathermap.org/">Open Weather API</a></p>
-//     </BringCoat>

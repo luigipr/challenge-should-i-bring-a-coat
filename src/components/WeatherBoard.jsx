@@ -32,7 +32,7 @@ export function WeatherBoard({ forecast }) {
         dataKey="dt"
         fontSize={12}
         tickFormatter={DateHelper.convertDate}
-        minTickGap={24}
+        minTickGap={30}
         interval="preserveStart"
         tickMargin={16}
       />
